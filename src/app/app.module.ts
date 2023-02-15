@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StoreFirstGuard } from './store-first.guard';
@@ -14,13 +15,13 @@ import { StoreModule } from './store/store.module';
     AppComponent
   ],
   imports: [
-    BrowserModule, StoreModule,
-    RouterModule.forRoot([
-      {path: "store", component: StoreComponent},
-      { path: "cart", component: CartDetailsComponent },
-      { path: "checkout", component: CheckoutComponent },
-      {path: "**", redirectTo: "/store"}    
-    ])
+    BrowserModule, StoreModule, AppRoutingModule
+    // RouterModule.forRoot([
+    //   {path: "store", component: StoreComponent},
+    //   { path: "cart", component: CartDetailsComponent },
+    //   { path: "checkout", component: CheckoutComponent },
+    //   {path: "**", redirectTo: "/store"}
+    // ])
   ],
   providers: [StoreFirstGuard],
   bootstrap: [AppComponent]
